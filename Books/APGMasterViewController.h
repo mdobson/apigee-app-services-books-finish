@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MasterViewDelegate <NSObject>
+
+- (void)addNewBook:(NSDictionary *)book;
+
+@end
+
 @class APGDetailViewController;
 
-@interface APGMasterViewController : UITableViewController
+@interface APGMasterViewController : UITableViewController<MasterViewDelegate>
 
 @property (strong, nonatomic) APGDetailViewController *detailViewController;
 

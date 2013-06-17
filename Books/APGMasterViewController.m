@@ -10,6 +10,10 @@
 
 #import "APGDetailViewController.h"
 
+#import "APGNewBookViewController.h"
+
+#import "UGClient.h"
+
 @interface APGMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -30,6 +34,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
+    UGClientResponse *result = [client getEntities:@"book" query:nil];
+    if (result.transactionState == kUGClientResponseSuccess) {
+        _objects = result.response[@"entities"];
+    } else {
+        _objects = @[];
+    }
+
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -45,12 +58,31 @@
 
 - (void)insertNewObject:(id)sender
 {
+    [self performSegueWithIdentifier:@"newBook" sender:self];
+//    if (!_objects) {
+//        _objects = [[NSMutableArray alloc] init];
+//    }
+//    [_objects insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)addNewBook:(NSDictionary *)book {
+    NSLog(@"called");
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
+    UGClientResponse * response = [client createEntity:@{@"type":@"book", @"title":book[@"title"]}];
+    if (response.transactionState == kUGClientResponseSuccess) {
+        [_objects insertObject:response.response[@"entities"][0] atIndex:0];
+    } else {
+        [_objects insertObject:@{@"title":@"error"} atIndex:0];
+    }
+    [self.tableView reloadData];
+    
+
 }
 
 #pragma mark - Table View
@@ -68,9 +100,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    NSString *object = _objects[indexPath.row][@"title"];
+    cell.textLabel.text = object;
+    
     return cell;
 }
 
@@ -84,7 +116,12 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSDictionary *entity = [_objects objectAtIndex:indexPath.row];
+        UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
+        UGClientResponse * response = [client removeEntity:@"book" entityID:entity[@"uuid"]];
+        if (response.transactionState == kUGClientResponseSuccess) {
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -120,6 +157,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
+    } else if ([[segue identifier] isEqualToString:@"newBook"]) {
+        NSLog(@"set delegate");
+        APGNewBookViewController * vc = [[APGNewBookViewController alloc] init];
+        [(APGNewBookViewController *)[segue destinationViewController] setDelegate:self];
     }
 }
 
