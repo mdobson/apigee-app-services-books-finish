@@ -14,7 +14,7 @@
 
 @implementation APGNewBookViewController
 
-@synthesize bookTitleText, delegate;
+@synthesize bookTitleText, bookAuthorText, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +39,7 @@
 
 -(IBAction)createBook:(id)sender {
     NSLog(@"del:%@",self.delegate);
-    [[self delegate] addNewBook:@{@"title": bookTitleText.text}];
+    [[self delegate] addNewBook:@{@"title": bookTitleText.text, @"author": bookAuthorText.text}];
     [self dismissViewControllerAnimated:YES completion:^(){}];
 }
 

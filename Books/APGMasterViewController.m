@@ -74,7 +74,7 @@
     }
     
     UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
-    UGClientResponse * response = [client createEntity:@{@"type":@"book", @"title":book[@"title"]}];
+    UGClientResponse * response = [client createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
     if (response.transactionState == kUGClientResponseSuccess) {
         [_objects insertObject:response.response[@"entities"][0] atIndex:0];
     } else {

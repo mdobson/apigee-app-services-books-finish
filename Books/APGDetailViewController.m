@@ -36,7 +36,9 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.titleLabel.text = self.detailItem[@"title"];
+        self.author.text = self.detailItem[@"author"];
+        self.uuid.text = self.detailItem[@"uuid"];
     }
 }
 
