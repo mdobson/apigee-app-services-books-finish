@@ -13,6 +13,7 @@
 #import "APGNewBookViewController.h"
 
 #import "UGClient.h"
+#import "APGSharedUGClient.h"
 
 @interface APGMasterViewController () {
     NSMutableArray *_objects;
@@ -34,8 +35,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
-    UGClientResponse *result = [client getEntities:@"book" query:nil];
+    UGClientResponse *result = [[APGSharedUGClient sharedClient] getEntities:@"book" query:nil];
     if (result.transactionState == kUGClientResponseSuccess) {
         _objects = result.response[@"entities"];
     } else {
@@ -73,8 +73,8 @@
         _objects = [[NSMutableArray alloc] init];
     }
     
-    UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
-    UGClientResponse * response = [client createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
+    
+    UGClientResponse * response = [[APGSharedUGClient sharedClient] createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
     if (response.transactionState == kUGClientResponseSuccess) {
         [_objects insertObject:response.response[@"entities"][0] atIndex:0];
     } else {
@@ -117,8 +117,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_objects removeObjectAtIndex:indexPath.row];
         NSDictionary *entity = [_objects objectAtIndex:indexPath.row];
-        UGClient * client = [[UGClient alloc] initWithOrganizationId:@"mdobson" withApplicationID:@"books"];
-        UGClientResponse * response = [client removeEntity:@"book" entityID:entity[@"uuid"]];
+        
+        UGClientResponse * response = [[APGSharedUGClient sharedClient] removeEntity:@"book" entityID:entity[@"uuid"]];
         if (response.transactionState == kUGClientResponseSuccess) {
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }

@@ -26,6 +26,7 @@
 		6326E006176A6BD40016932F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6326E004176A6BD40016932F /* InfoPlist.strings */; };
 		6326E009176A6BD40016932F /* BooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326E008176A6BD40016932F /* BooksTests.m */; };
 		6326E014176A71C50016932F /* APGNewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326E013176A71C50016932F /* APGNewBookViewController.m */; };
+		63274B6C17709B4E000E41FD /* APGSharedUGClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63274B6B17709B4E000E41FD /* APGSharedUGClient.m */; };
 		6329F688176CABBB00C68CCF /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F658176CABBB00C68CCF /* NSObject+SBJson.m */; };
 		6329F689176CABBB00C68CCF /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F65B176CABBB00C68CCF /* SBJsonParser.m */; };
 		6329F68A176CABBB00C68CCF /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F65D176CABBB00C68CCF /* SBJsonStreamParser.m */; };
@@ -89,6 +90,8 @@
 		6326E008176A6BD40016932F /* BooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksTests.m; sourceTree = "<group>"; };
 		6326E012176A71C50016932F /* APGNewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APGNewBookViewController.h; sourceTree = "<group>"; };
 		6326E013176A71C50016932F /* APGNewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APGNewBookViewController.m; sourceTree = "<group>"; };
+		63274B6A17709B4E000E41FD /* APGSharedUGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APGSharedUGClient.h; sourceTree = "<group>"; };
+		63274B6B17709B4E000E41FD /* APGSharedUGClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APGSharedUGClient.m; sourceTree = "<group>"; };
 		6329F657176CABBB00C68CCF /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		6329F658176CABBB00C68CCF /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		6329F659176CABBB00C68CCF /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				6326DFD8176A6BD40016932F /* Supporting Files */,
 				6326E012176A71C50016932F /* APGNewBookViewController.h */,
 				6326E013176A71C50016932F /* APGNewBookViewController.m */,
+				63274B6A17709B4E000E41FD /* APGSharedUGClient.h */,
+				63274B6B17709B4E000E41FD /* APGSharedUGClient.m */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				6329F69C176CABBB00C68CCF /* UGHTTPClient.m in Sources */,
 				6329F69D176CABBB00C68CCF /* UGHTTPHelpers.m in Sources */,
 				6329F69E176CABBB00C68CCF /* UGHTTPResult.m in Sources */,
+				63274B6C17709B4E000E41FD /* APGSharedUGClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
