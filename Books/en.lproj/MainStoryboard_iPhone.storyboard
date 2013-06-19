@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" title="Books" id="36"/>
                     <connections>
                         <outlet property="searchBar" destination="v6i-Dc-HyU" id="yIw-xM-J2h"/>
                         <segue destination="5ul-Ml-Fhd" kind="modal" identifier="newBook" id="0BK-RJ-eCh"/>
@@ -161,7 +161,7 @@
                             <constraint firstItem="Chu-cM-PL2" firstAttribute="top" secondItem="22" secondAttribute="top" constant="140" id="mBB-qg-k4b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" id="26"/>
+                    <navigationItem key="navigationItem" title="Book Details" id="26"/>
                     <connections>
                         <outlet property="author" destination="Chu-cM-PL2" id="haN-FK-leS"/>
                         <outlet property="titleLabel" destination="61m-vV-9iN" id="bgA-WV-WGv"/>

@@ -50,6 +50,7 @@
 		6329F69C176CABBB00C68CCF /* UGHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F683176CABBB00C68CCF /* UGHTTPClient.m */; };
 		6329F69D176CABBB00C68CCF /* UGHTTPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F685176CABBB00C68CCF /* UGHTTPHelpers.m */; };
 		6329F69E176CABBB00C68CCF /* UGHTTPResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F687176CABBB00C68CCF /* UGHTTPResult.m */; };
+		63AA9F6A177132C40044137D /* APGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AA9F69177132C40044137D /* APGLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		6329F685176CABBB00C68CCF /* UGHTTPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGHTTPHelpers.m; sourceTree = "<group>"; };
 		6329F686176CABBB00C68CCF /* UGHTTPResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UGHTTPResult.h; sourceTree = "<group>"; };
 		6329F687176CABBB00C68CCF /* UGHTTPResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGHTTPResult.m; sourceTree = "<group>"; };
+		63AA9F68177132C40044137D /* APGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APGLoginViewController.h; path = ../APGLoginViewController.h; sourceTree = "<group>"; };
+		63AA9F69177132C40044137D /* APGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APGLoginViewController.m; path = ../APGLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 		6326DFD7176A6BD40016932F /* Books */ = {
 			isa = PBXGroup;
 			children = (
+				63AA9F68177132C40044137D /* APGLoginViewController.h */,
+				63AA9F69177132C40044137D /* APGLoginViewController.m */,
 				6329F655176CABBB00C68CCF /* UGAPI */,
 				6326DFE0176A6BD40016932F /* APGAppDelegate.h */,
 				6326DFE1176A6BD40016932F /* APGAppDelegate.m */,
@@ -462,6 +467,7 @@
 				6329F69D176CABBB00C68CCF /* UGHTTPHelpers.m in Sources */,
 				6329F69E176CABBB00C68CCF /* UGHTTPResult.m in Sources */,
 				63274B6C17709B4E000E41FD /* APGSharedUGClient.m in Sources */,
+				63AA9F6A177132C40044137D /* APGLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
