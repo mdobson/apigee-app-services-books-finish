@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     static NSString *orgName = @"mdobson";
-    static NSString *appName = @"sandbox";
+    static NSString *appName = @"books";
     self.client = [[UGClient alloc] initWithOrganizationId:orgName withApplicationID:appName];
 	// Do any additional setup after loading the view, typically from a nib.
     UGClientResponse *result = [self.client getEntities:@"book" query:nil];
