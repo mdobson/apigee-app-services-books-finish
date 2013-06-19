@@ -34,8 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    static NSString *orgName = @"mdobson";
+    static NSString *appName = @"sandbox";
+    self.client = [[UGClient alloc] initWithOrganizationId:orgName withApplicationID:appName];
 	// Do any additional setup after loading the view, typically from a nib.
-    UGClientResponse *result = [[APGSharedUGClient sharedClient] getEntities:@"book" query:nil];
+    UGClientResponse *result = [self.client getEntities:@"book" query:nil];
     if (result.transactionState == kUGClientResponseSuccess) {
         _objects = result.response[@"entities"];
     } else {
@@ -74,7 +77,7 @@
     }
     
     
-    UGClientResponse * response = [[APGSharedUGClient sharedClient] createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
+    UGClientResponse * response = [self.client createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
     if (response.transactionState == kUGClientResponseSuccess) {
         [_objects insertObject:response.response[@"entities"][0] atIndex:0];
     } else {
@@ -118,7 +121,7 @@
         [_objects removeObjectAtIndex:indexPath.row];
         NSDictionary *entity = [_objects objectAtIndex:indexPath.row];
         
-        UGClientResponse * response = [[APGSharedUGClient sharedClient] removeEntity:@"book" entityID:entity[@"uuid"]];
+        UGClientResponse * response = [self.client removeEntity:@"book" entityID:entity[@"uuid"]];
         if (response.transactionState == kUGClientResponseSuccess) {
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
@@ -162,6 +165,31 @@
         APGNewBookViewController * vc = [[APGNewBookViewController alloc] init];
         [(APGNewBookViewController *)[segue destinationViewController] setDelegate:self];
     }
+}
+
+/*-(BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    NSLog(@"change");
+    return NO;
+}*/
+
+/*-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBa{
+    return YES;
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    NSLog(@"Ended editing:%@", searchBar.text);
+}*/
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    UGQuery * query = [[UGQuery alloc] init];
+    [query addRequirement:[NSString stringWithFormat:@"title='%@'", searchBar.text]];
+    UGClientResponse *result = [self.client getEntities:@"book" query:query];
+    if (result.transactionState == kUGClientResponseSuccess) {
+        _objects = result.response[@"entities"];
+    } else {
+        _objects = @[];
+    }
+    [self.tableView reloadData];
 }
 
 @end

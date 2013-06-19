@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UGClient.h"
 
 @protocol MasterViewDelegate <NSObject>
 
@@ -16,8 +17,10 @@
 
 @class APGDetailViewController;
 
-@interface APGMasterViewController : UITableViewController<MasterViewDelegate>
+@interface APGMasterViewController : UITableViewController<MasterViewDelegate,UISearchBarDelegate>
 
 @property (strong, nonatomic) APGDetailViewController *detailViewController;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) UGClient *client;
 
 @end
