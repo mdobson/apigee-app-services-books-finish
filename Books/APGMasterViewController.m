@@ -103,8 +103,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    NSString *object = _objects[indexPath.row][@"title"];
-    cell.textLabel.text = object;
+    NSString *title = _objects[indexPath.row][@"title"];
+    NSString *author = _objects[indexPath.row][@"author"];
+    cell.textLabel.text = title;
+    cell.detailTextLabel.text = author;
     
     return cell;
 }
@@ -118,6 +120,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.tableView beginUpdates];
         [_objects removeObjectAtIndex:indexPath.row];
         NSDictionary *entity = [_objects objectAtIndex:indexPath.row];
         
@@ -125,6 +128,7 @@
         if (response.transactionState == kUGClientResponseSuccess) {
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         }
+        [self.tableView endUpdates];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
