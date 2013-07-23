@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ApigeeiOSSDK/ApigeeClient.h>
 #import "UGClient.h"
 
 @protocol MasterViewDelegate <NSObject>
@@ -21,6 +22,6 @@
 
 @property (strong, nonatomic) APGDetailViewController *detailViewController;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) UGClient *client;
+@property (strong, nonatomic) ApigeeClient *client;
 
 @end

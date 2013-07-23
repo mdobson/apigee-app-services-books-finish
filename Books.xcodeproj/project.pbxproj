@@ -26,7 +26,6 @@
 		6326E006176A6BD40016932F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6326E004176A6BD40016932F /* InfoPlist.strings */; };
 		6326E009176A6BD40016932F /* BooksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326E008176A6BD40016932F /* BooksTests.m */; };
 		6326E014176A71C50016932F /* APGNewBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6326E013176A71C50016932F /* APGNewBookViewController.m */; };
-		63274B6C17709B4E000E41FD /* APGSharedUGClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 63274B6B17709B4E000E41FD /* APGSharedUGClient.m */; };
 		6329F688176CABBB00C68CCF /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F658176CABBB00C68CCF /* NSObject+SBJson.m */; };
 		6329F689176CABBB00C68CCF /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F65B176CABBB00C68CCF /* SBJsonParser.m */; };
 		6329F68A176CABBB00C68CCF /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F65D176CABBB00C68CCF /* SBJsonStreamParser.m */; };
@@ -50,6 +49,10 @@
 		6329F69C176CABBB00C68CCF /* UGHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F683176CABBB00C68CCF /* UGHTTPClient.m */; };
 		6329F69D176CABBB00C68CCF /* UGHTTPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F685176CABBB00C68CCF /* UGHTTPHelpers.m */; };
 		6329F69E176CABBB00C68CCF /* UGHTTPResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329F687176CABBB00C68CCF /* UGHTTPResult.m */; };
+		6340FFB9179ED2D100700CB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB6179ED2D100700CB1 /* CoreLocation.framework */; };
+		6340FFBA179ED2D100700CB1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */; };
+		6340FFBB179ED2D100700CB1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB8179ED2D100700CB1 /* SystemConfiguration.framework */; };
+		6340FFBD179ED2FC00700CB1 /* ApigeeiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFBC179ED2FC00700CB1 /* ApigeeiOSSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,8 +93,6 @@
 		6326E008176A6BD40016932F /* BooksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BooksTests.m; sourceTree = "<group>"; };
 		6326E012176A71C50016932F /* APGNewBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APGNewBookViewController.h; sourceTree = "<group>"; };
 		6326E013176A71C50016932F /* APGNewBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APGNewBookViewController.m; sourceTree = "<group>"; };
-		63274B6A17709B4E000E41FD /* APGSharedUGClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APGSharedUGClient.h; sourceTree = "<group>"; };
-		63274B6B17709B4E000E41FD /* APGSharedUGClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APGSharedUGClient.m; sourceTree = "<group>"; };
 		6329F657176CABBB00C68CCF /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		6329F658176CABBB00C68CCF /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		6329F659176CABBB00C68CCF /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -140,6 +141,10 @@
 		6329F685176CABBB00C68CCF /* UGHTTPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGHTTPHelpers.m; sourceTree = "<group>"; };
 		6329F686176CABBB00C68CCF /* UGHTTPResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UGHTTPResult.h; sourceTree = "<group>"; };
 		6329F687176CABBB00C68CCF /* UGHTTPResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UGHTTPResult.m; sourceTree = "<group>"; };
+		6340FFB6179ED2D100700CB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		6340FFB8179ED2D100700CB1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6340FFBC179ED2FC00700CB1 /* ApigeeiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApigeeiOSSDK.framework; path = "../../sdks/apigee-ios-sdk/build/framework/ApigeeiOSSDK.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +152,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6340FFBD179ED2FC00700CB1 /* ApigeeiOSSDK.framework in Frameworks */,
+				6340FFB9179ED2D100700CB1 /* CoreLocation.framework in Frameworks */,
+				6340FFBA179ED2D100700CB1 /* CoreTelephony.framework in Frameworks */,
+				6340FFBB179ED2D100700CB1 /* SystemConfiguration.framework in Frameworks */,
+				6326DFD6176A6BD40016932F /* CoreGraphics.framework in Frameworks */,
 				6326DFD2176A6BD40016932F /* UIKit.framework in Frameworks */,
 				6326DFD4176A6BD40016932F /* Foundation.framework in Frameworks */,
-				6326DFD6176A6BD40016932F /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +178,10 @@
 		6326DFC5176A6BD40016932F = {
 			isa = PBXGroup;
 			children = (
+				6340FFBC179ED2FC00700CB1 /* ApigeeiOSSDK.framework */,
+				6340FFB6179ED2D100700CB1 /* CoreLocation.framework */,
+				6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */,
+				6340FFB8179ED2D100700CB1 /* SystemConfiguration.framework */,
 				6326DFD7176A6BD40016932F /* Books */,
 				6326E001176A6BD40016932F /* BooksTests */,
 				6326DFD0176A6BD40016932F /* Frameworks */,
@@ -211,8 +224,6 @@
 				6326DFD8176A6BD40016932F /* Supporting Files */,
 				6326E012176A71C50016932F /* APGNewBookViewController.h */,
 				6326E013176A71C50016932F /* APGNewBookViewController.m */,
-				63274B6A17709B4E000E41FD /* APGSharedUGClient.h */,
-				63274B6B17709B4E000E41FD /* APGSharedUGClient.m */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -461,7 +472,6 @@
 				6329F69C176CABBB00C68CCF /* UGHTTPClient.m in Sources */,
 				6329F69D176CABBB00C68CCF /* UGHTTPHelpers.m in Sources */,
 				6329F69E176CABBB00C68CCF /* UGHTTPResult.m in Sources */,
-				63274B6C17709B4E000E41FD /* APGSharedUGClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +590,10 @@
 		6326E00D176A6BD40016932F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../sdks/apigee-ios-sdk/build/framework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Books/Books-Prefix.pch";
 				INFOPLIST_FILE = "Books/Books-Info.plist";
@@ -591,6 +605,10 @@
 		6326E00E176A6BD40016932F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../sdks/apigee-ios-sdk/build/framework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Books/Books-Prefix.pch";
 				INFOPLIST_FILE = "Books/Books-Info.plist";

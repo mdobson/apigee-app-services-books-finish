@@ -12,7 +12,8 @@
 
 #import "APGNewBookViewController.h"
 
-#import "UGClient.h"
+#import <ApigeeiOSSDK/ApigeeClient.h>
+#import <ApigeeiOSSDK/ApigeeDataClient.h>
 #import "APGSharedUGClient.h"
 
 @interface APGMasterViewController () {
@@ -36,14 +37,16 @@
     [super viewDidLoad];
     static NSString *orgName = @"mdobson";
     static NSString *appName = @"books";
-    self.client = [[UGClient alloc] initWithOrganizationId:orgName withApplicationID:appName];
+    self.client =  [[ApigeeClient alloc] initWithOrganizationId:orgName applicationId:appName];
 	// Do any additional setup after loading the view, typically from a nib.
-    UGClientResponse *result = [self.client getEntities:@"book" query:nil];
-    if (result.transactionState == kUGClientResponseSuccess) {
-        _objects = result.response[@"entities"];
-    } else {
-        _objects = @[];
-    }
+    [[self.client dataClient] getEntities:@"book" query:nil
+                        completionHandler:^(ApigeeClientResponse *result){
+                            if (result.transactionState == kApigeeClientResponseSuccess) {
+                                _objects = result.response[@"entities"];
+                            } else {
+                                _objects = @[];
+                            }
+                        }];
 
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -77,13 +80,14 @@
     }
     
     
-    UGClientResponse * response = [self.client createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]}];
-    if (response.transactionState == kUGClientResponseSuccess) {
-        [_objects insertObject:response.response[@"entities"][0] atIndex:0];
-    } else {
-        [_objects insertObject:@{@"title":@"error"} atIndex:0];
-    }
-    [self.tableView reloadData];
+    [[self.client dataClient] createEntity:@{@"type":@"book", @"title":book[@"title"], @"author":book[@"author"]} completionHandler:^(ApigeeClientResponse *response){
+        if (response.transactionState == kApigeeClientResponseSuccess) {
+            [_objects insertObject:response.response[@"entities"][0] atIndex:0];
+        } else {
+            [_objects insertObject:@{@"title":@"error"} atIndex:0];
+        }
+        [self.tableView reloadData];
+    }];
     
 
 }
@@ -124,11 +128,14 @@
         [_objects removeObjectAtIndex:indexPath.row];
         NSDictionary *entity = [_objects objectAtIndex:indexPath.row];
         
-        UGClientResponse * response = [self.client removeEntity:@"book" entityID:entity[@"uuid"]];
-        if (response.transactionState == kUGClientResponseSuccess) {
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
-        [self.tableView endUpdates];
+        [[self.client dataClient] removeEntity:@"book"
+                                      entityID:entity[@"uuid"]
+                             completionHandler:^(ApigeeClientResponse *response){
+                                 if (response.transactionState == kUGClientResponseSuccess) {
+                                     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                 }
+                                 [self.tableView endUpdates];
+                             }];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
@@ -185,15 +192,18 @@
 }*/
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    UGQuery * query = [[UGQuery alloc] init];
+    ApigeeQuery * query = [[ApigeeQuery alloc] init];
     [query addRequirement:[NSString stringWithFormat:@"title='%@'", searchBar.text]];
-    UGClientResponse *result = [self.client getEntities:@"book" query:query];
-    if (result.transactionState == kUGClientResponseSuccess) {
-        _objects = result.response[@"entities"];
-    } else {
-        _objects = @[];
-    }
-    [self.tableView reloadData];
+    [[self.client dataClient] getEntities:@"book"
+                                    query:query
+                        completionHandler:^(ApigeeClientResponse *result){
+                            if (result.transactionState == kUGClientResponseSuccess) {
+                                _objects = result.response[@"entities"];
+                            } else {
+                                _objects = @[];
+                            }
+                            [self.tableView reloadData];
+                        }];
 }
 
 @end
