@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <ApigeeiOSSDK/ApigeeClient.h>
-#import "UGClient.h"
+
 
 @protocol MasterViewDelegate <NSObject>
 

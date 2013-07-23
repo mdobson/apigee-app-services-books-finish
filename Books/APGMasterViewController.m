@@ -14,7 +14,6 @@
 
 #import <ApigeeiOSSDK/ApigeeClient.h>
 #import <ApigeeiOSSDK/ApigeeDataClient.h>
-#import "APGSharedUGClient.h"
 
 @interface APGMasterViewController () {
     NSMutableArray *_objects;
@@ -46,6 +45,7 @@
                             } else {
                                 _objects = @[];
                             }
+                            [self.tableView reloadData];
                         }];
 
     
@@ -131,7 +131,7 @@
         [[self.client dataClient] removeEntity:@"book"
                                       entityID:entity[@"uuid"]
                              completionHandler:^(ApigeeClientResponse *response){
-                                 if (response.transactionState == kUGClientResponseSuccess) {
+                                 if (response.transactionState == kApigeeClientResponseSuccess) {
                                      [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                                  }
                                  [self.tableView endUpdates];
@@ -197,7 +197,7 @@
     [[self.client dataClient] getEntities:@"book"
                                     query:query
                         completionHandler:^(ApigeeClientResponse *result){
-                            if (result.transactionState == kUGClientResponseSuccess) {
+                            if (result.transactionState == kApigeeClientResponseSuccess) {
                                 _objects = result.response[@"entities"];
                             } else {
                                 _objects = @[];
