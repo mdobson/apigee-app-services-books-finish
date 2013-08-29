@@ -30,6 +30,7 @@
 		6340FFB9179ED2D100700CB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB6179ED2D100700CB1 /* CoreLocation.framework */; };
 		6340FFBA179ED2D100700CB1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */; };
 		6340FFBB179ED2D100700CB1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6340FFB8179ED2D100700CB1 /* SystemConfiguration.framework */; };
+		6346D9A417CF715A00B5AF67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6346D9A317CF715A00B5AF67 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		6340FFB6179ED2D100700CB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6340FFB8179ED2D100700CB1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6346D9A317CF715A00B5AF67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6346D9A417CF715A00B5AF67 /* Security.framework in Frameworks */,
 				6340FFB9179ED2D100700CB1 /* CoreLocation.framework in Frameworks */,
 				6340FFBA179ED2D100700CB1 /* CoreTelephony.framework in Frameworks */,
 				6340FFBB179ED2D100700CB1 /* SystemConfiguration.framework in Frameworks */,
@@ -126,6 +129,7 @@
 		6326DFD0176A6BD40016932F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6346D9A317CF715A00B5AF67 /* Security.framework */,
 				631B88A017CBAB7200D97134 /* ApigeeiOSSDK.framework */,
 				6340FFB6179ED2D100700CB1 /* CoreLocation.framework */,
 				6340FFB7179ED2D100700CB1 /* CoreTelephony.framework */,
